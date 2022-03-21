@@ -287,7 +287,7 @@ class BigQuery(BaseQueryRunner):
             return []
 
         project_id = self._get_project_id()
-        datasets = self._get_project_datasets(project_id)
+        datasets = service.datasets().list(projectId=project_id).execute()
 
         query_base = """
         SELECT table_schema, table_name, column_name
@@ -297,7 +297,7 @@ class BigQuery(BaseQueryRunner):
 
         schema = {}
         queries = []
-        for dataset in datasets:
+        for dataset in datasets.get("datasets", []):
             dataset_id = dataset["datasetReference"]["datasetId"]
             query = query_base.format(dataset_id=dataset_id)
             queries.append(query)
