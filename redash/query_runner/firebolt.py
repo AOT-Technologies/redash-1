@@ -26,7 +26,7 @@ class Firebolt(BaseQueryRunner):
                 "password": {"type": "string"},
             },
             "order": ["host", "port", "user", "password", "DB"],
-            "required": ["user", "password"],
+            "required": ["user","password"],
             "secret": ["password"],
         }
 
@@ -61,6 +61,7 @@ class Firebolt(BaseQueryRunner):
             connection.close()
 
         return json_data, error
+
 
     def get_schema(self, get_stats=False):
         query = """
