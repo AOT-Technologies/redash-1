@@ -3,11 +3,15 @@ import requests
 from flask import redirect, url_for, Blueprint, flash, request, session
 
 
-from redash import models, settings
+import requests
+from authlib.integrations.flask_client import OAuth
+from flask import Blueprint, flash, redirect, request, session, url_for
+
+from redash import models
 from redash.authentication import (
     create_and_login_user,
-    logout_and_redirect_to_index,
     get_next_path,
+    logout_and_redirect_to_index,
 )
 from redash.authentication.org_resolving import current_org
 

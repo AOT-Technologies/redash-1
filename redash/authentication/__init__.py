@@ -5,8 +5,11 @@ import time
 from datetime import timedelta
 from urllib.parse import urlsplit, urlunsplit
 
-from flask import jsonify, redirect, request, url_for, session
+from flask import jsonify, redirect, request, session, url_for
 from flask_login import LoginManager, login_user, logout_user, user_logged_in
+from sqlalchemy.orm.exc import NoResultFound
+from werkzeug.exceptions import Unauthorized
+
 from redash import models, settings
 from redash.authentication import jwt_auth
 from redash.authentication.org_resolving import current_org
@@ -26,9 +29,7 @@ def get_login_url(external=False, next="/", is_redirect_to_login=False):
     if settings.MULTI_ORG and current_org == None:
         login_url = "/"
     elif settings.MULTI_ORG:
-        login_url = url_for(
-            "redash.login", org_slug=current_org.slug, next=next, _external=external
-        )
+        login_url = url_for("redash.login", org_slug=current_org.slug, next=next, _external=external)
     else:
         logger.info("getting login URL")
         host_url = settings.HOST
@@ -78,11 +79,7 @@ def request_loader(request):
     elif settings.AUTH_TYPE == "api_key":
         user = api_key_load_user_from_request(request)
     else:
-        logger.warning(
-            "Unknown authentication type ({}). Using default (HMAC).".format(
-                settings.AUTH_TYPE
-            )
-        )
+        logger.warning("Unknown authentication type ({}). Using default (HMAC).".format(settings.AUTH_TYPE))
         user = hmac_load_user_from_request(request)
 
     if org_settings["auth_jwt_login_enabled"] and user is None:
@@ -209,6 +206,10 @@ def jwt_token_load_user_from_request(request):
     if not payload:
         return
 
+    if "email" not in payload:
+        logger.info("No email field in token, refusing to login")
+        return
+
     try:
         user = models.User.get_by_email_and_org(payload["email"], org)
     except models.NoResultFound:
@@ -252,7 +253,7 @@ def redirect_to_login():
 def logout_and_redirect_to_index():
     logout_user()
 
-    if settings.MULTI_ORG and current_org == None:
+    if settings.MULTI_ORG and current_org == None:  # noqa: E711
         index_url = "/"
     elif settings.MULTI_ORG:
         index_url = url_for("redash.index", org_slug=current_org.slug, _external=False)

@@ -2,6 +2,7 @@ from flask import request, abort
 
 from .authentication import current_org
 from flask_login import current_user, login_required
+
 from redash import models
 
 from redash.handlers import routes
@@ -12,6 +13,8 @@ from redash.worker import get_job_logger
 from redash.utils.dynamic_key import decode_token
 
 logger = get_job_logger(__name__)
+
+from .authentication import current_org
 
 
 @routes.route(

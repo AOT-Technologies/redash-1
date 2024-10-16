@@ -7,7 +7,6 @@ else:
     import requests as requests_or_advocate
 
 
-
 class ConfiguredSession(requests_or_advocate.Session):
     def request(self, *args, **kwargs):
         if not settings.REQUESTS_ALLOW_REDIRECTS:
