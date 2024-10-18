@@ -211,7 +211,7 @@ const GroupMembersPage = wrapSettingsTab(
 routes.register(
   "Groups.Members",
   routeWithUserSession({
-    path: "/groups/:groupId",
+    path: "(/redash)?/groups/:groupId",
     title: "Group Members",
     render: pageProps => <GroupMembersPage {...pageProps} currentPage="users" />,
   })

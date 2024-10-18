@@ -154,7 +154,7 @@ const GroupsListPage = wrapSettingsTab(
 routes.register(
   "Groups.List",
   routeWithUserSession({
-    path: "/groups",
+    path: "(/redash)?/groups",
     title: "Groups",
     render: pageProps => <GroupsListPage {...pageProps} currentPage="groups" />,
   })

@@ -217,7 +217,7 @@ const QuerySnippetsListPage = wrapSettingsTab(
 routes.register(
   "QuerySnippets.List",
   routeWithUserSession({
-    path: "/query_snippets",
+    path: "(/redash)?/query_snippets",
     title: "Query Snippets",
     render: pageProps => <QuerySnippetsListPage {...pageProps} currentPage="query_snippets" />,
   })
@@ -225,7 +225,7 @@ routes.register(
 routes.register(
   "QuerySnippets.NewOrEdit",
   routeWithUserSession({
-    path: "/query_snippets/:querySnippetId",
+    path: "(/redash)?/query_snippets/:querySnippetId",
     title: "Query Snippets",
     render: pageProps => <QuerySnippetsListPage {...pageProps} currentPage="query_snippets" isNewOrEditPage />,
   })

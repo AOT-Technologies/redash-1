@@ -288,7 +288,7 @@ const UsersListPage = wrapSettingsTab(
 routes.register(
   "Users.New",
   routeWithUserSession({
-    path: "/users/new",
+    path: "(/redash)?/users/new",
     title: "Users",
     render: pageProps => <UsersListPage {...pageProps} currentPage="active" isNewUserPage />,
   })
@@ -296,7 +296,7 @@ routes.register(
 routes.register(
   "Users.List",
   routeWithUserSession({
-    path: "/users",
+    path: "(/redash)?/users",
     title: "Users",
     render: pageProps => <UsersListPage {...pageProps} currentPage="active" />,
   })
@@ -304,7 +304,7 @@ routes.register(
 routes.register(
   "Users.Pending",
   routeWithUserSession({
-    path: "/users/pending",
+    path: "(/redash)?/users/pending",
     title: "Pending Invitations",
     render: pageProps => <UsersListPage {...pageProps} currentPage="pending" />,
   })
@@ -312,7 +312,7 @@ routes.register(
 routes.register(
   "Users.Disabled",
   routeWithUserSession({
-    path: "/users/disabled",
+    path: "(/redash)?/users/disabled",
     title: "Disabled Users",
     render: pageProps => <UsersListPage {...pageProps} currentPage="disabled" />,
   })

@@ -98,7 +98,7 @@ export default function Home() {
 routes.register(
   "Home",
   routeWithUserSession({
-    path: "/",
+    path: "(/redash)?/",
     title: "Redash",
     render: pageProps => <Home {...pageProps} />,
   })

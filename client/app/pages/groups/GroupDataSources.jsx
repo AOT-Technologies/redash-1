@@ -248,7 +248,7 @@ const GroupDataSourcesPage = wrapSettingsTab(
 routes.register(
   "Groups.DataSources",
   routeWithUserSession({
-    path: "/groups/:groupId/data_sources",
+    path: "(/redash)?/groups/:groupId/data_sources",
     title: "Group Data Sources",
     render: pageProps => <GroupDataSourcesPage {...pageProps} currentPage="datasources" />,
   })

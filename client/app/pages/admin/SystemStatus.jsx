@@ -85,7 +85,7 @@ class SystemStatus extends React.Component {
 routes.register(
   "Admin.SystemStatus",
   routeWithUserSession({
-    path: "/admin/status",
+    path: "(/redash)?/admin/status",
     title: "System Status",
     render: pageProps => <SystemStatus {...pageProps} />,
   })

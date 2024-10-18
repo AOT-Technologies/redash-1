@@ -164,7 +164,7 @@ const OutdatedQueriesPage = itemsList(
 routes.register(
   "Admin.OutdatedQueries",
   routeWithUserSession({
-    path: "/admin/queries/outdated",
+    path: "(/redash)?/admin/queries/outdated",
     title: "Outdated Queries",
     render: pageProps => <OutdatedQueriesPage {...pageProps} currentPage="outdated_queries" />,
   })

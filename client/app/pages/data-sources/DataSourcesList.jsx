@@ -172,7 +172,7 @@ const DataSourcesListPage = wrapSettingsTab(
 routes.register(
   "DataSources.List",
   routeWithUserSession({
-    path: "/data_sources",
+    path: "(/redash)?/data_sources",
     title: "Data Sources",
     render: pageProps => <DataSourcesListPage {...pageProps} />,
   })
@@ -180,7 +180,7 @@ routes.register(
 routes.register(
   "DataSources.New",
   routeWithUserSession({
-    path: "/data_sources/new",
+    path: "(/redash)?/data_sources/new",
     title: "Data Sources",
     render: pageProps => <DataSourcesListPage {...pageProps} isNewDataSourcePage />,
   })

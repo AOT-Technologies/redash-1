@@ -206,7 +206,7 @@ DashboardPage.defaultProps = {
 routes.register(
   "Dashboards.LegacyViewOrEdit",
   routeWithUserSession({
-    path: "/dashboard/:dashboardSlug",
+    path: "(/redash)?/dashboard/:dashboardSlug",
     render: pageProps => <DashboardPage {...pageProps} />,
   })
 );
@@ -214,7 +214,7 @@ routes.register(
 routes.register(
   "Dashboards.ViewOrEdit",
   routeWithUserSession({
-    path: "/dashboards/:dashboardId([^-]+)(-.*)?",
+    path: "(/redash)?/dashboards/:dashboardId([^-]+)(-.*)?",
     render: pageProps => <DashboardPage {...pageProps} />,
   })
 );

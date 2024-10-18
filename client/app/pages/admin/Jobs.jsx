@@ -131,7 +131,7 @@ class Jobs extends React.Component {
 routes.register(
   "Admin.Jobs",
   routeWithUserSession({
-    path: "/admin/queries/jobs",
+    path: "(/redash)?/admin/queries/jobs",
     title: "RQ Status",
     render: pageProps => <Jobs {...pageProps} />,
   })

@@ -430,7 +430,7 @@ const QuerySourcePage = wrapQueryPage(QuerySource);
 routes.register(
   "Queries.New",
   routeWithUserSession({
-    path: "/queries/new",
+    path: "(/redash)?/queries/new",
     render: pageProps => <QuerySourcePage {...pageProps} />,
     bodyClass: "fixed-layout",
   })
@@ -438,7 +438,7 @@ routes.register(
 routes.register(
   "Queries.Edit",
   routeWithUserSession({
-    path: "/queries/:queryId/source",
+    path: "(/redash)?/queries/:queryId/source",
     render: pageProps => <QuerySourcePage {...pageProps} />,
     bodyClass: "fixed-layout",
   })

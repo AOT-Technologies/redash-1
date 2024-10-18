@@ -81,7 +81,7 @@ const UserProfilePage = wrapSettingsTab(
 routes.register(
   "Users.Account",
   routeWithUserSession({
-    path: "/users/me",
+    path: "(/redash)?/users/me",
     title: "Account",
     render: pageProps => <UserProfilePage {...pageProps} />,
   })
@@ -89,7 +89,7 @@ routes.register(
 routes.register(
   "Users.ViewOrEdit",
   routeWithUserSession({
-    path: "/users/:userId",
+    path: "(/redash)?/users/:userId",
     title: "Users",
     render: pageProps => <UserProfilePage {...pageProps} />,
   })

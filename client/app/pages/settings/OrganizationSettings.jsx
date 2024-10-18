@@ -59,7 +59,7 @@ const OrganizationSettingsPage = wrapSettingsTab(
 routes.register(
   "Settings.Organization",
   routeWithUserSession({
-    path: "/settings/general",
+    path: "(/redash)?/settings/general",
     title: "General Settings",
     render: pageProps => <OrganizationSettingsPage {...pageProps} />,
   })

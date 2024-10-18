@@ -179,7 +179,7 @@ const DashboardListPage = itemsList(
 routes.register(
   "Dashboards.List",
   routeWithUserSession({
-    path: "/dashboards",
+    path: "(/redash)?/dashboards",
     title: "Dashboards",
     render: pageProps => <DashboardListPage {...pageProps} currentPage="all" />,
   })
@@ -187,7 +187,7 @@ routes.register(
 routes.register(
   "Dashboards.Favorites",
   routeWithUserSession({
-    path: "/dashboards/favorites",
+    path: "(/redash)?/dashboards/favorites",
     title: "Favorite Dashboards",
     render: pageProps => <DashboardListPage {...pageProps} currentPage="favorites" />,
   })
@@ -195,7 +195,7 @@ routes.register(
 routes.register(
   "Dashboards.My",
   routeWithUserSession({
-    path: "/dashboards/my",
+    path: "(/redash)?/dashboards/my",
     title: "My Dashboards",
     render: pageProps => <DashboardListPage {...pageProps} currentPage="my" />,
   })

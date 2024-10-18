@@ -145,7 +145,7 @@ const DestinationsListPage = wrapSettingsTab(
 routes.register(
   "AlertDestinations.List",
   routeWithUserSession({
-    path: "/destinations",
+    path: "(/redash)?/destinations",
     title: "Alert Destinations",
     render: pageProps => <DestinationsListPage {...pageProps} />,
   })
@@ -153,7 +153,7 @@ routes.register(
 routes.register(
   "AlertDestinations.New",
   routeWithUserSession({
-    path: "/destinations/new",
+    path: "(/redash)?/destinations/new",
     title: "Alert Destinations",
     render: pageProps => <DestinationsListPage {...pageProps} isNewDestinationPage />,
   })

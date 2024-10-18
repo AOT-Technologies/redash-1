@@ -256,7 +256,7 @@ class Alert extends React.Component {
 routes.register(
   "Alerts.New",
   routeWithUserSession({
-    path: "/alerts/new",
+    path: "(/redash)?/alerts/new",
     title: "New Alert",
     render: pageProps => <Alert {...pageProps} mode={MODES.NEW} />,
   })
@@ -264,7 +264,7 @@ routes.register(
 routes.register(
   "Alerts.View",
   routeWithUserSession({
-    path: "/alerts/:alertId",
+    path: "(/redash)?/alerts/:alertId",
     title: "Alert",
     render: pageProps => <Alert {...pageProps} mode={MODES.VIEW} />,
   })
@@ -272,7 +272,7 @@ routes.register(
 routes.register(
   "Alerts.Edit",
   routeWithUserSession({
-    path: "/alerts/:alertId/edit",
+    path: "(/redash)?/alerts/:alertId/edit",
     title: "Alert",
     render: pageProps => <Alert {...pageProps} mode={MODES.EDIT} />,
   })

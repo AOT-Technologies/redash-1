@@ -205,7 +205,7 @@ const QueriesListPage = itemsList(
 routes.register(
   "Queries.List",
   routeWithUserSession({
-    path: "/queries",
+    path: "(/redash)?/queries",
     title: "Queries",
     render: pageProps => <QueriesListPage {...pageProps} currentPage="all" />,
   })
@@ -213,7 +213,7 @@ routes.register(
 routes.register(
   "Queries.Favorites",
   routeWithUserSession({
-    path: "/queries/favorites",
+    path: "(/redash)?/queries/favorites",
     title: "Favorite Queries",
     render: pageProps => <QueriesListPage {...pageProps} currentPage="favorites" />,
   })
@@ -221,7 +221,7 @@ routes.register(
 routes.register(
   "Queries.Archived",
   routeWithUserSession({
-    path: "/queries/archive",
+    path: "(/redash)?/queries/archive",
     title: "Archived Queries",
     render: pageProps => <QueriesListPage {...pageProps} currentPage="archive" />,
   })
@@ -229,7 +229,7 @@ routes.register(
 routes.register(
   "Queries.My",
   routeWithUserSession({
-    path: "/queries/my",
+    path: "(/redash)?/queries/my",
     title: "My Queries",
     render: pageProps => <QueriesListPage {...pageProps} currentPage="my" />,
   })

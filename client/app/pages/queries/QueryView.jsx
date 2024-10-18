@@ -235,7 +235,7 @@ const QueryViewPage = wrapQueryPage(QueryView);
 routes.register(
   "Queries.View",
   routeWithUserSession({
-    path: "/queries/:queryId",
+    path: "(/redash)?/queries/:queryId",
     render: pageProps => <QueryViewPage {...pageProps} />,
   })
 );

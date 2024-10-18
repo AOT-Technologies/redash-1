@@ -146,7 +146,7 @@ const EditDataSourcePage = wrapSettingsTab("DataSources.Edit", null, EditDataSou
 routes.register(
   "DataSources.Edit",
   routeWithUserSession({
-    path: "/data_sources/:dataSourceId",
+    path: "(/redash)?/data_sources/:dataSourceId",
     title: "Data Sources",
     render: pageProps => <EditDataSourcePage {...pageProps} />,
   })

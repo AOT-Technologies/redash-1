@@ -150,7 +150,7 @@ const AlertsListPage = itemsList(
 routes.register(
   "Alerts.List",
   routeWithUserSession({
-    path: "/alerts",
+    path: "(/redash)?/alerts",
     title: "Alerts",
     render: pageProps => <AlertsListPage {...pageProps} currentPage="alerts" />,
   })
